@@ -1,0 +1,108 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_appID",
+				"type": "string"
+			},
+			{
+				"name": "_path",
+				"type": "string"
+			},
+			{
+				"name": "_fileHash",
+				"type": "string"
+			},
+			{
+				"name": "_udf",
+				"type": "string"
+			}
+		],
+		"name": "triggerFileEvent",
+		"outputs": [
+			{
+				"name": "eventLogged",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "file2Hashes",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_path",
+				"type": "string"
+			}
+		],
+		"name": "getHashByName",
+		"outputs": [
+			{
+				"name": "_fileHash",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "appID",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "instant",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "fileName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "fileHash",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "UDF",
+				"type": "string"
+			}
+		],
+		"name": "FileEvent",
+		"type": "event"
+	}
+]
