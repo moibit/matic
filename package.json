@@ -1,25 +1,33 @@
 {
   "name": "@moibitjs/matic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MoiBit module which writes provenance to matic network",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moibit/matic.git"
   },
+  "keywords": [
+    "on-chain",
+    "matic",
+    "storage",
+    "moibit",
+    "provenance",
+    "sdk",
+    "js",
+    "files"
+  ],
   "author": "its-VSP",
   "license": "",
   "bugs": {
     "url": "https://github.com/moibit/matic/issues"
   },
-  "homepage": "https://github.com/moibit/matic#readme",
-  "devDependencies": {
+  "dependencies": {
+    "@moibitjs/core": "^0.1.1",
     "keccak256": "^1.0.0"
   },
+  "homepage": "https://github.com/moibit/matic#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@moibitjs/core": "^0.1.0"
   }
 }
