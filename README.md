@@ -9,6 +9,13 @@
 
 **MoiBitJS/matic** uses [MoiBitJS/core module](https://github.com/moibit/core) to perform file actions and the provenance of files will be stored in [Matic network](https://matic.network).
 
+## Installation
+
+Just run the following npm command and the SDK will be installed.
+``` bash
+npm install --save @moibitjs/matic
+```
+
 ## Get Started
 
 ``` js
