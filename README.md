@@ -86,3 +86,18 @@ Returns file with specified return type only if the hash stored
 await  mFiles.read('parent1/folder2/file3.txt','blob');
 ```
 to do more actions other than `add & read` with files module visit [@moibitjs/core](https://github.com/moibit/core)
+
+
+## Maintainers
+
+1. [Vuppala Sai Prashanth](https://github.com/its-VSP)
+2. [Arunprakash](https://github.com/Arunprakash1414)
+
+## Contributors
+
+1. Ayush Gupta
+2. Ganesh Prasad Kumble
+
+## Support
+
+If you need more clarifications, feel free to join our Telegram or Slack community channels. You can also write us an email at [hello@moibit.io](mailto:hello@moibit.io)
