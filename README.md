@@ -2,6 +2,7 @@
 
 # @moibitjs/matic
 
+[![npm version](https://badge.fury.io/js/%40moibitjs%2Fmatic.svg)](https://badge.fury.io/js/%40moibitjs%2Fmatic)
 [![Chat on Slack](https://img.shields.io/badge/Slack-MoiBit%20Slack%20community-blue)](https://join.slack.com/t/moibit/signup)
 [![Chat on Telegram](https://img.shields.io/badge/Telegram-MoiBit%20Telegram%20community-blue)](https://t.me/moibit)
 [![Follow us on Twitter](https://img.shields.io/badge/Twitter-MoiBit%20Twitter-blue?style=social&logo=twitter)](https://twitter.com/moibitio)
