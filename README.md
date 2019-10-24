@@ -63,8 +63,8 @@ Add file of any type which will be stored in MoiBit and the returned multi-hash 
 -  <code>file</code> can be window file object or stream
 -  <code>path</code> is an absolute path in your files directory at which you want the file to be inserted.
 -  <code>options</code>
--  `createFolders` is a boolean value which specifies to create a folder/not if it is not existing , that was mentioned in above path attribute (_default : true_)
--  `pinVersion` is a boolean value which tells to pin the file while adding.(_default : false_)
+	-  `createFolders` is a boolean value which specifies to create a folder/not if it is not existing , that was mentioned in above path attribute (_default : true_)
+	-  `pinVersion` is a boolean value which tells to pin the file while adding.(_default : false_)
 
 ``` js
 await  mFiles.add(fileObject,'parent1/folder2/file3.txt');
@@ -86,9 +86,10 @@ Returns file with specified return type only if the hash stored
 
 - `responseType` can be anything among
 
-- _arraybuffer , document , json , text , stream_
+	- _arraybuffer , document , json , text , stream_
 
-- _blob - browser only_
+	- _blob - browser only_
+	
 ``` js
 await  mFiles.read('parent1/folder2/file3.txt','blob');
 ```
@@ -100,7 +101,7 @@ to do more actions other than `add & read` with files module visit [@moibitjs/co
 1. [Vuppala Sai Prashanth](https://github.com/its-VSP)
 2. [Arunprakash](https://github.com/Arunprakash1414)
 
-## Contributors
+## Reviewers
 
 1. Ayush Gupta
 2. Ganesh Prasad Kumble
@@ -108,3 +109,7 @@ to do more actions other than `add & read` with files module visit [@moibitjs/co
 ## Support
 
 If you need more clarifications, feel free to join our Telegram or Slack community channels. You can also write us an email at [hello@moibit.io](mailto:hello@moibit.io)
+
+## License
+
+[GNU General Public License v3.0](https://github.com/moibit/matic/blob/master/LICENSE)
