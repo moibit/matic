@@ -10,7 +10,7 @@ export default class {
         this._matic = _m
         this._provenanceContract = new _m._web3.eth.Contract(
             FilesArtifact,
-            '0xBe8A8587419B0926fAEd400fbfb2b03273aB5a11'
+            '0xce1Bd5d5FF81bA407aAaEc8Fd915a3C25Bbf391c'
         )
     }
 
@@ -19,10 +19,10 @@ export default class {
         try {
             if (network !== undefined && _aT !== undefined) {
                 const aT = {
-                    public: _aT['API_KEY'],
-                    secret: _aT['API_SECRET']
+                    api_key: _aT['API_KEY'],
+                    api_secret: _aT['API_SECRET']
                 }
-                let App = new MoiBit(network, aT)
+                let App = new MoiBit(network, aT);
                 this._app = App
             }
             else {
@@ -30,7 +30,7 @@ export default class {
             }
         }
         catch (error) {
-            throw new Error(error)
+            throw new Error(error.message)
         }
     }
 
@@ -43,28 +43,28 @@ export default class {
     }
 
     //Add file of any type which is stored in MoiBit and the returned multi-hash will be stored in matic chain to which you were connected.
-    async add(file, filePath, options) {
+    async add(file, filePath, options={}) {
         try {
-            let response = await this._app.add(file, filePath, options)
-            const currentAccount = (await this._matic._web3.eth.getAccounts())[0]
-            let moibitAddress = this.getMoibitAddress(this._app.fileApi.accessToken.public)
-            let result = await this._provenanceContract.methods.triggerFileEvent(moibitAddress, filePath, response.Hash,'Added '+filePath).send({ from: currentAccount })
+            options['fileName'] = filePath;
+            let response = await this._app.addFile(file, options);
+            const currentAccount = (await this._matic._web3.eth.getAccounts())[0];
+            let moibitAddress = this.getMoibitAddress(this._app._fileApi.accessToken.api_key);
+            let result = await this._provenanceContract.methods.triggerFileEvent(moibitAddress, options.fileName, response.data.data.Hash,'Added '+options.fileName).send({ from: currentAccount })
             if(result) {
                 return response
             }
         }
         catch (error) {
-            throw new Error(error)
+            throw new Error(error.message)
         }
     }
     
     // This function returns file added with mentioned return type if the hash stored on-chain (ie., in Matic) and off-chain (ie., in MoiBit) are same, if not same returns File modified off-chain
     async read(fileName,responseType) {
         try {
-            let offChainFileHash = (await this.fileDetail(fileName)).Hash
-            let moibitAddress = this.getMoibitAddress(this._app.fileApi.accessToken.public)
+            let offChainFileHash = (await this.fileDetail(fileName)).data.data.Hash;
+            let moibitAddress = this.getMoibitAddress(this._app._fileApi.accessToken.api_key)
             let onChainFileHash = await this._provenanceContract.methods.getHashByName(moibitAddress + '/' + fileName).call();
-            console.log(onChainFileHash)
             if (offChainFileHash == onChainFileHash) {
                 let response = await this._app.read(fileName,responseType)
                 return response
@@ -82,7 +82,7 @@ export default class {
     }
 
     //This function returns file added with mentioned return type.
-    async readFromHash(hash,responseType) { await this._app.readFromHash(hash,responseType) }
+    async readFromHash(hash,responseType) { await this._app.readFileByHash(hash,responseType) }
 
     // This function returns array of files within the folder mentioned.
     async list(folderpath) { return await this._app.list(folderpath) }
@@ -91,14 +91,14 @@ export default class {
     async remove(absoluteFilePath) { return await this._app.remove(absoluteFilePath) }
     
     //Pins the file in MoiBit , so that garbage Collector won't collect the file even though the file was not accessed for a long time.
-    async pin(data) { return await this._app.pin(data) }
+    async pin(data) { return await this._app.addPin(data) }
 
     //Unpins the pinned file in MoiBit , so that garbage Collector got the access to collect the file which was not accessed for a long time.
-    async unPin(data) { return await this._app.unpin(data) }
+    async unPin(data) { return await this._app.removePin(data) }
 
     //Returns complete detail about the file
-    async fileDetail(filePath) { return await this._app.filedetail(filePath) }
+    async fileDetail(filePath) { return await this._app.fileStats(filePath) }
 
     //Returns all the storage details of the particular account (you did init with) in specific Unit.
-    async storageDetails(unit) { return await this._app.storagedetails(unit) }
+    async storageDetails(unit) { return await this._app.storageUsed(unit) }
 }

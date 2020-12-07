@@ -31,6 +31,43 @@
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "appID",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "instant",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "fileName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "fileHash",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "UDF",
+				"type": "string"
+			}
+		],
+		"name": "FileEvent",
+		"type": "event"
+	},
+	{
 		"constant": true,
 		"inputs": [
 			{
@@ -67,42 +104,5 @@
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "appID",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"name": "instant",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "fileName",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"name": "fileHash",
-				"type": "string"
-			},
-			{
-				"indexed": true,
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "UDF",
-				"type": "string"
-			}
-		],
-		"name": "FileEvent",
-		"type": "event"
 	}
 ]

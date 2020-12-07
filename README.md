@@ -101,11 +101,6 @@ to do more actions other than `add & read` with files module visit [@moibitjs/co
 1. [Vuppala Sai Prashanth](https://github.com/its-VSP)
 2. [Arunprakash](https://github.com/Arunprakash1414)
 
-## Reviewers
-
-1. Ayush Gupta
-2. Ganesh Prasad Kumble
-
 ## Support
 
 If you need more clarifications, feel free to join our Telegram or Slack community channels. You can also write us an email at [hello@moibit.io](mailto:hello@moibit.io)
